@@ -11,7 +11,7 @@
     <properties>
         <mule.version>@mule.version@</mule.version>
         <devkit.version>@project.version@</devkit.version>
-    </properties>
+</properties>
 
     <build>
         <pluginManagement>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.9</version>
             <scope>test</scope>
         </dependency>
         <dependency>

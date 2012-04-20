@@ -25,13 +25,16 @@ import org.mule.api.MuleException;
 import org.mule.api.registry.RegistrationException;
 import org.mule.construct.Flow;
 import org.mule.devkit.it.adapters.OAuthModuleOAuth2Adapter;
-import org.mule.tck.AbstractMuleTestCase;
-import org.mule.tck.FunctionalTestCase;
+import org.mule.tck.junit4.FunctionalTestCase;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class OAuthModuleTest extends FunctionalTestCase {
 
@@ -42,7 +45,7 @@ public class OAuthModuleTest extends FunctionalTestCase {
 
     @Test
     public void testEnsureCapability() throws Exception {
-        Capabilities capabilities = (Capabilities) AbstractMuleTestCase.muleContext.getRegistry().lookupObject("default-oauth");
+        Capabilities capabilities = (Capabilities) muleContext.getRegistry().lookupObject("default-oauth");
 
         assertTrue(capabilities.isCapableOf(Capability.OAUTH2_CAPABLE));
     }
@@ -55,9 +58,10 @@ public class OAuthModuleTest extends FunctionalTestCase {
 
     @Test(expected = MessagingException.class)
     public void testProtectedResourceWithoutAuthorization() throws Exception {
-        MuleEvent responseEvent = runFlow("protectedResource");
+        runFlow("protectedResource");
     }
 
+    @Test
     public void testProtectedResource() throws Exception {
         MuleEvent responseEvent = runFlow("authorize");
         String url = verifyUserIsRedirectedToAuthorizationUrl(responseEvent);
@@ -125,12 +129,12 @@ public class OAuthModuleTest extends FunctionalTestCase {
     }
 
     private Flow lookupFlowConstruct(String name) {
-        return (Flow) AbstractMuleTestCase.muleContext.getRegistry().lookupFlowConstruct(name);
+        return (Flow) muleContext.getRegistry().lookupFlowConstruct(name);
     }
 
     private MuleEvent runFlow(String flowName) throws Exception {
         Flow flow = lookupFlowConstruct(flowName);
-        MuleEvent event = AbstractMuleTestCase.getTestEvent("");
+        MuleEvent event = getTestEvent("");
         return flow.process(event);
     }
 }
