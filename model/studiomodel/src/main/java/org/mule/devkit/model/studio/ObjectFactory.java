@@ -64,6 +64,7 @@ public class ObjectFactory {
     private final static QName _GroupEncoding_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "encoding");
     private final static QName _GroupPath_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "path");
     private final static QName _GroupBoolean_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "boolean");
+    private final static QName _GroupRadioBoolean_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "radioBoolean");
     private final static QName _GroupChildElement_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "childElement");
     private final static QName _GroupString_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "string");
     private final static QName _GroupName_QNAME = new QName("http://www.mulesoft.org/schema/mule/tooling.attributes", "name");
@@ -447,6 +448,14 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.mulesoft.org/schema/mule/tooling.attributes", name = "boolean", scope = Group.class)
     public JAXBElement<Booleantype> createGroupBoolean(Booleantype value) {
         return new JAXBElement<Booleantype>(_GroupBoolean_QNAME, Booleantype.class, Group.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Booleantype }{@code >}}
+     */
+    @XmlElementDecl(namespace = "http://www.mulesoft.org/schema/mule/tooling.attributes", name = "radioBoolean", scope = Group.class)
+    public JAXBElement<Booleantype> createGroupRadioBoolean(Booleantype value) {
+        return new JAXBElement<Booleantype>(_GroupRadioBoolean_QNAME, Booleantype.class, Group.class, value);
     }
 
     /**

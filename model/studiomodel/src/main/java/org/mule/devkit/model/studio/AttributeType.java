@@ -119,6 +119,14 @@ public class AttributeType {
     protected NewSimpleType modeType;
     @XmlAttribute(name = "javaType")
     protected String javaType;
+    @XmlAttribute(name = "labelledWith")
+    protected String labelledWith;
+    @XmlAttribute(name = "singeLineForExpressions")
+    protected Boolean singeLineForExpressions;
+    @XmlAttribute(name = "hiddenForUser")
+    protected Boolean hiddenForUser;
+    @XmlAttribute(name = "transient")
+    protected Boolean transientt;
 
     /**
      * Gets the value of the name property.
@@ -466,5 +474,37 @@ public class AttributeType {
 
     public void setJavaType(String javaType) {
         this.javaType = javaType;
+    }
+
+    public String getLabelledWith() {
+        return labelledWith;
+    }
+
+    public void setLabelledWith(String labelledWith) {
+        this.labelledWith = labelledWith;
+    }
+
+    public Boolean isHiddenForUser() {
+        return hiddenForUser;
+    }
+
+    public void setHiddenForUser(Boolean hiddenForUser) {
+        this.hiddenForUser = hiddenForUser;
+    }
+
+    public Boolean isTransientt() {
+        return transientt;
+    }
+
+    public void setTransientt(Boolean transientt) {
+        this.transientt = transientt;
+    }
+
+    public Boolean getSingeLineForExpressions() {
+        return singeLineForExpressions;
+    }
+
+    public void setSingeLineForExpressions(Boolean singeLineForExpressions) {
+        this.singeLineForExpressions = singeLineForExpressions;
     }
 }

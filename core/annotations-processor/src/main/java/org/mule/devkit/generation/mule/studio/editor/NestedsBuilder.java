@@ -21,11 +21,13 @@ import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
 import org.mule.api.annotations.Transformer;
+import org.mule.api.annotations.param.Optional;
 import org.mule.devkit.GeneratorContext;
 import org.mule.devkit.generation.DevKitTypeElement;
 import org.mule.devkit.generation.spring.SchemaGenerator;
 import org.mule.devkit.model.studio.AbstractElementType;
 import org.mule.devkit.model.studio.AttributeType;
+import org.mule.devkit.model.studio.Booleantype;
 import org.mule.devkit.model.studio.NestedElementReference;
 import org.mule.devkit.model.studio.NestedElementType;
 import org.mule.devkit.model.studio.StringAttributeType;
@@ -56,8 +58,11 @@ public class NestedsBuilder extends BaseStudioXmlBuilder {
 
                 String localId = helper.getLocalId(executableElement, variableElement);
                 NestedElementReference childElement = createChildElement(variableElement, localId);
+                childElement.setRequired(variableElement.getAnnotation(Optional.class) == null);
+                childElement.setControlled("createAList");
                 NestedElementType firstLevelNestedElement = createFirstLevelNestedElement(variableElement, localId);
                 firstLevelNestedElement.getRegexpOrEncodingOrString().add(helper.createJAXBElement(childElement));
+                firstLevelNestedElement.setSpecialValuePersistance(helper.getUrl(typeElement) + helper.getLocalId(executableElement, variableElement));
 
                 NestedElementType secondLevelNestedElement = null;
                 NestedElementType thirdLevelNestedElement = null;
@@ -206,6 +211,29 @@ public class NestedsBuilder extends BaseStudioXmlBuilder {
         nestedElement.setDescription(helper.formatDescription(nameUtils.friendlyNameFromCamelCase(parameter.getSimpleName().toString())));
         nestedElement.setIcon(getIcon());
         nestedElement.setImage(getImage());
+
+        Booleantype radioBoolean1 = new Booleantype();
+        radioBoolean1.setLabelledWith(helper.getFormattedCaption(parameter));
+        radioBoolean1.setCaption(helper.formatCaption("From Message"));
+        radioBoolean1.setName("fromMessage");
+        radioBoolean1.setTransientt(false);
+        radioBoolean1.setHiddenForUser(true);
+
+        StringAttributeType stringAttribute = new StringAttributeType();
+        stringAttribute.setName("ref");
+        stringAttribute.setControlled("fromMessage");
+        stringAttribute.setSupportsExpressions(false);
+        stringAttribute.setSingeLineForExpressions(true);
+
+        Booleantype radioBoolean2 = new Booleantype();
+        radioBoolean2.setCaption(helper.formatCaption("Create a List"));
+        radioBoolean2.setName("createAList");
+        radioBoolean2.setTransientt(false);
+        radioBoolean2.setHiddenForUser(true);
+
+        nestedElement.getRegexpOrEncodingOrString().add(objectFactory.createGroupRadioBoolean(radioBoolean1));
+        nestedElement.getRegexpOrEncodingOrString().add(objectFactory.createGroupString(stringAttribute));
+        nestedElement.getRegexpOrEncodingOrString().add(objectFactory.createGroupRadioBoolean(radioBoolean2));
         return nestedElement;
     }
 

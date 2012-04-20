@@ -104,6 +104,8 @@ public class NestedElementType
 
     @XmlAttribute(name = "xmlname")
     protected String xmlname;
+    @XmlAttribute(name = "specialValuePersistance")
+    protected String specialValuePersistance;
 
     /**
      * Gets the value of the regexpOrEncodingOrString property.
@@ -156,5 +158,9 @@ public class NestedElementType
 
     public void setXmlname(String xmlname) {
         this.xmlname = xmlname;
+    }
+
+    public void setSpecialValuePersistance(String specialValuePersistance) {
+        this.specialValuePersistance = specialValuePersistance;
     }
 }

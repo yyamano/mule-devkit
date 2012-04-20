@@ -368,4 +368,8 @@ public class MuleStudioUtils {
                 typeMirrorUtils.isCollection(variable) ||
                 typeMirrorUtils.isURL(variable);
     }
+
+    public String getUrl(DevKitTypeElement typeElement) {
+        return MuleStudioEditorXmlGenerator.URI_PREFIX + typeElement.name() + '/';
+    }
 }

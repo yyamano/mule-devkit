@@ -54,10 +54,10 @@ public class PatternTypeBuilder extends BaseStudioXmlBuilder {
         patternType.setAbstract(true);
 
         if (executableElement.getAnnotation(Processor.class) != null) {
-            patternType.setExtends(MuleStudioEditorXmlGenerator.URI_PREFIX + typeElement.name() + '/' + helper.getGlobalRefId(typeElement.name()));
+            patternType.setExtends(helper.getUrl(typeElement) + helper.getGlobalRefId(typeElement.name()));
             patternType.setReturnType(typeMirrorUtils.getJavaType(executableElement));
         } else if (executableElement.getAnnotation(Transformer.class) != null) {
-            patternType.setExtends(MuleStudioEditorXmlGenerator.URI_PREFIX + typeElement.name() + '/' + AbstractTransformerBuilder.ABSTRACT_TRANSFORMER_LOCAL_ID);
+            patternType.setExtends(helper.getUrl(typeElement) + AbstractTransformerBuilder.ABSTRACT_TRANSFORMER_LOCAL_ID);
             patternType.setDescription(helper.formatDescription(javaDocUtils.getSummary(executableElement)));
         }
 
