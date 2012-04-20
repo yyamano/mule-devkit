@@ -8,6 +8,11 @@
     <packaging>mule-module</packaging>
     <name>Mule DevKit Collection Integration Tests</name>
 
+    <properties>
+        <mule.version>@mule.version@</mule.version>
+        <devkit.version>@project.version@</devkit.version>
+    </properties>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -83,7 +88,7 @@
         <dependency>
             <groupId>org.mule</groupId>
             <artifactId>mule-core</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -95,7 +100,7 @@
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-spring-config</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.safehaus.jug</groupId>
@@ -111,7 +116,7 @@
         <dependency>
             <groupId>org.mule.tests</groupId>
             <artifactId>mule-tests-functional</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>

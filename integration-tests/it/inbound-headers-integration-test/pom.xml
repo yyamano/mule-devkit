@@ -8,10 +8,10 @@
     <packaging>mule-module</packaging>
     <name>Mule DevKit Inbound Headers Integration Tests</name>
 
-	<properties>
-		<devkit.version>3.3-SNAPSHOT</devkit.version>
-		<mule.version>3.3.0-RC3-SNAPSHOT</mule.version>
-	</properties>
+    <properties>
+        <mule.version>@mule.version@</mule.version>
+        <devkit.version>@project.version@</devkit.version>
+    </properties>
 
     <build>
         <pluginManagement>

@@ -8,13 +8,18 @@
     <packaging>mule-module</packaging>
     <name>Mule DevKit Bean Injection Integration Tests</name>
 
+    <properties>
+        <mule.version>@mule.version@</mule.version>
+        <devkit.version>@project.version@</devkit.version>
+    </properties>
+
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.mule.tools.devkit</groupId>
                     <artifactId>mule-devkit-maven-plugin</artifactId>
-                    <version>@project.version@</version>
+                    <version>${devkit.version}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <schemaVersion>1.0</schemaVersion>
@@ -43,7 +48,7 @@
             <plugin>
                 <groupId>org.mule.tools.devkit</groupId>
                 <artifactId>mule-devkit-maven-plugin</artifactId>
-                <version>@project.version@</version>
+                <version>${devkit.version}</version>
                 <extensions>true</extensions>
             </plugin>
         </plugins>
@@ -86,7 +91,7 @@
         <dependency>
             <groupId>org.mule</groupId>
             <artifactId>mule-core</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -98,7 +103,7 @@
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-spring-config</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.safehaus.jug</groupId>
@@ -109,12 +114,12 @@
         <dependency>
             <groupId>org.mule.tools.devkit</groupId>
             <artifactId>mule-devkit-annotations</artifactId>
-            <version>@project.version@</version>
+            <version>${devkit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.tests</groupId>
             <artifactId>mule-tests-functional</artifactId>
-            <version>@mule.version@</version>
+            <version>${mule.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>

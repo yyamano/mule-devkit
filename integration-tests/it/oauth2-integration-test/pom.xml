@@ -9,9 +9,8 @@
     <name>Mule DevKit OAuth Integration Tests</name>
 
     <properties>
-        <mule.version>3.3.0-RC3-SNAPSHOT</mule.version>
-        <devkit.version>3.3-SNAPSHOT</devkit.version>
-        <dsl.version>0.7</dsl.version>
+        <mule.version>@mule.version@</mule.version>
+        <devkit.version>@project.version@</devkit.version>
     </properties>
 
     <build>
@@ -78,7 +77,13 @@
         <dependency>
             <groupId>org.mule.dsl</groupId>
             <artifactId>dsl-api</artifactId>
-            <version>${dsl.version}</version>
+            <version>0.7</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mule</groupId>
+                    <artifactId>core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mule</groupId>
@@ -109,12 +114,6 @@
             <version>${devkit.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.mule.transports</groupId>
-            <artifactId>mule-transport-http</artifactId>
-            <version>${mule.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mule.tests</groupId>
             <artifactId>mule-tests-functional</artifactId>
             <version>${mule.version}</version>
@@ -132,14 +131,21 @@
             <version>2.0.0</version>
             <classifier>asl</classifier>
         </dependency>
-        <dependency>
-            <groupId>oauth.signpost</groupId>
-            <artifactId>signpost-core</artifactId>
-            <version>1.2</version>
-        </dependency>
     </dependencies>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/2</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <repositories>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Maven 2 Repository</name>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
         <repository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases</name>
