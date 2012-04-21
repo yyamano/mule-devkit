@@ -39,7 +39,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Strings" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="false" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/collection/configurable-string"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/collection/configurable-string"></childElement>
   </nested>
   <nested xmlname="string" image="icons/large/collection-connector-48x32.png" localId="configurable-string" icon="icons/small/collection-connector-24x16.png" description="Strings." caption="Strings">
     <text isToElement="true" description="Configurable strings." caption="Strings" name="configurable-string"></text>
@@ -48,7 +48,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Items" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="false" description="Items." caption="Items" name="http://www.mulesoft.org/schema/mule/collection/configurable-item"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Items." caption="Items" name="http://www.mulesoft.org/schema/mule/collection/configurable-item"></childElement>
   </nested>
   <nested xmlname="item" image="icons/large/collection-connector-48x32.png" localId="configurable-item" icon="icons/small/collection-connector-24x16.png" description="Items." caption="Items">
     <text isToElement="true" description="Configurable items." caption="Items" name="configurable-item"></text>
@@ -57,7 +57,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Map Strings" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="false" description="Map strings." caption="Map Strings" name="http://www.mulesoft.org/schema/mule/collection/configurable-map-string"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Map strings." caption="Map Strings" name="http://www.mulesoft.org/schema/mule/collection/configurable-map-string"></childElement>
   </nested>
   <nested xmlname="map-string" image="icons/large/collection-connector-48x32.png" localId="configurable-map-string" icon="icons/small/collection-connector-24x16.png" description="Map strings." caption="Map Strings">
     <string description="Key." caption="Key" name="key"></string>
@@ -67,7 +67,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Map Items" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="false" description="Map items." caption="Map Items" name="http://www.mulesoft.org/schema/mule/collection/configurable-map-item"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Map items." caption="Map Items" name="http://www.mulesoft.org/schema/mule/collection/configurable-map-item"></childElement>
   </nested>
   <nested xmlname="map-item" image="icons/large/collection-connector-48x32.png" localId="configurable-map-item" icon="icons/small/collection-connector-24x16.png" description="Map items." caption="Map Items">
     <string description="Key." caption="Key" name="key"></string>
@@ -84,7 +84,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Strings" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/collection/operation1-string"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/collection/operation1-string"></childElement>
   </nested>
   <nested xmlname="string" image="icons/large/collection-connector-48x32.png" localId="operation1-string" icon="icons/small/collection-connector-24x16.png" description="Strings." caption="Strings">
     <text isToElement="true" description="A list of strings." caption="Strings" name="operation1-string"></text>
@@ -100,7 +100,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Map Strings" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Map strings." caption="Map Strings" name="http://www.mulesoft.org/schema/mule/collection/operation2-map-string"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Map strings." caption="Map Strings" name="http://www.mulesoft.org/schema/mule/collection/operation2-map-string"></childElement>
   </nested>
   <nested xmlname="map-string" image="icons/large/collection-connector-48x32.png" localId="operation2-map-string" icon="icons/small/collection-connector-24x16.png" description="Map strings." caption="Map Strings">
     <string description="Key." caption="Key" name="key"></string>
@@ -117,7 +117,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Map Objects" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Map objects." caption="Map Objects" name="http://www.mulesoft.org/schema/mule/collection/operation3-map-object"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Map objects." caption="Map Objects" name="http://www.mulesoft.org/schema/mule/collection/operation3-map-object"></childElement>
   </nested>
   <nested xmlname="map-object" image="icons/large/collection-connector-48x32.png" localId="operation3-map-object" icon="icons/small/collection-connector-24x16.png" description="Map objects." caption="Map Objects">
     <string description="Key." caption="Key" name="key"></string>
@@ -134,7 +134,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Properties" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Properties." caption="Properties" name="http://www.mulesoft.org/schema/mule/collection/operation4-property"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Properties." caption="Properties" name="http://www.mulesoft.org/schema/mule/collection/operation4-property"></childElement>
   </nested>
   <nested xmlname="property" image="icons/large/collection-connector-48x32.png" localId="operation4-property" icon="icons/small/collection-connector-24x16.png" description="Properties." caption="Properties">
     <string description="Key." caption="Key" name="key"></string>
@@ -151,7 +151,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="List" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="List." caption="List" name="http://www.mulesoft.org/schema/mule/collection/operation5-list-each"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="List." caption="List" name="http://www.mulesoft.org/schema/mule/collection/operation5-list-each"></childElement>
   </nested>
   <nested xmlname="list" image="icons/large/collection-connector-48x32.png" localId="operation5-list-each" icon="icons/small/collection-connector-24x16.png" description="List." caption="List">
     <text isToElement="true" description="A list." caption="List" name="operation5-list"></text>
@@ -167,7 +167,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Objects" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Object." caption="Object" name="http://www.mulesoft.org/schema/mule/collection/operation6-object"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Object." caption="Object" name="http://www.mulesoft.org/schema/mule/collection/operation6-object"></childElement>
   </nested>
   <nested xmlname="inner-object" image="icons/large/collection-connector-48x32.png" localId="inner-operation6-object" icon="icons/small/collection-connector-24x16.png" description="Objects." caption="Objects">
     <string description="Key." caption="Key" name="key"></string>

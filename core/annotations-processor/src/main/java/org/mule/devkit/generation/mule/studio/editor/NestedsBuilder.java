@@ -21,7 +21,6 @@ import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.Source;
 import org.mule.api.annotations.Transformer;
-import org.mule.api.annotations.param.Optional;
 import org.mule.devkit.GeneratorContext;
 import org.mule.devkit.generation.DevKitTypeElement;
 import org.mule.devkit.generation.spring.SchemaGenerator;
@@ -58,7 +57,6 @@ public class NestedsBuilder extends BaseStudioXmlBuilder {
 
                 String localId = helper.getLocalId(executableElement, variableElement);
                 NestedElementReference childElement = createChildElement(variableElement, localId);
-                childElement.setRequired(variableElement.getAnnotation(Optional.class) == null);
                 childElement.setControlled("createAList");
                 NestedElementType firstLevelNestedElement = createFirstLevelNestedElement(variableElement, localId);
                 firstLevelNestedElement.getRegexpOrEncodingOrString().add(helper.createJAXBElement(childElement));

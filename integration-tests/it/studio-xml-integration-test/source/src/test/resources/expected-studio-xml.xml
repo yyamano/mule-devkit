@@ -78,7 +78,7 @@
     <radioBoolean transient="false" hiddenForUser="true" labelledWith="Strings" caption="From Message" name="fromMessage"></radioBoolean>
     <string singeLineForExpressions="true" controlled="fromMessage" supportsExpressions="false" name="ref"></string>
     <radioBoolean transient="false" hiddenForUser="true" caption="Create A List" name="createAList"></radioBoolean>
-    <childElement allowMultiple="true" controlled="createAList" required="true" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/source/subscribe-with-params-string"></childElement>
+    <childElement allowMultiple="true" controlled="createAList" description="Strings." caption="Strings" name="http://www.mulesoft.org/schema/mule/source/subscribe-with-params-string"></childElement>
   </nested>
   <nested xmlname="string" image="icons/large/source-endpoint-48x32.png" localId="subscribe-with-params-string" icon="icons/small/source-endpoint-24x16.png" description="Strings." caption="Strings">
     <text isToElement="true" description="The strings." caption="Strings" name="subscribe-with-params-string"></text>
