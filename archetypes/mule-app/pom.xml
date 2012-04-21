@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>mule-devkit-archetypes</artifactId>
 		<groupId>org.mule.tools.devkit</groupId>
-		<version>3.3-RC3</version>
+		<version>3.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>mule-devkit-archetype-mule-app</artifactId>
 	<name>Mule DevKit Archetype for Mule Application</name>
