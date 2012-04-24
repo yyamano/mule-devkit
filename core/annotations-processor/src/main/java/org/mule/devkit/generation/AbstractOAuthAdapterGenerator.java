@@ -52,6 +52,7 @@ import org.mule.devkit.model.code.builders.FieldBuilder;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.TypeMirror;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -213,6 +214,9 @@ public abstract class AbstractOAuthAdapterGenerator extends AbstractModuleGenera
             Method override = oauthAdapter.method(Modifier.PUBLIC, ref(executableElement.getReturnType()), executableElement.getSimpleName().toString());
             //override.annotate(Override.class);
             override._throws(ref(NotAuthorizedException.class));
+            for(TypeMirror thrownType : executableElement.getThrownTypes()) {
+                override._throws(ref(thrownType).boxify());
+            }
 
             override.body().invoke("hasBeenAuthorized");
 
