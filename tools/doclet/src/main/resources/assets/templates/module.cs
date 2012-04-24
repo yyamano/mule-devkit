@@ -333,8 +333,8 @@ we will extract the OAuth access token property and OAuth access token secret pr
 
     &lt;<?cs var:class.moduleName ?>:config&gt;
         &lt;<?cs var:class.moduleName ?>:save-oauth-access-token&gt;
-            &lt;objectstore:store key="OAuthAccessToken" value="#[header:INBOUND:OAuthAccessToken]"/&gt;
-            &lt;objectstore:store key="OAuthAccessTokenSecret" value="#[header:INBOUND:OAuthAccessTokenSecret]"/&gt;
+            &lt;objectstore:store key="OAuthAccessToken" value-ref="#[header:INBOUND:OAuthAccessToken]"/&gt;
+            &lt;objectstore:store key="OAuthAccessTokenSecret" value-ref="#[header:INBOUND:OAuthAccessTokenSecret]"/&gt;
         &lt;/<?cs var:class.moduleName ?>:save-oauth-access-token&gt;
         &lt;<?cs var:class.moduleName ?>:restore-oauth-access-token&gt;
             &lt;enricher target="#[header:OAuthAccessToken]"&gt;
