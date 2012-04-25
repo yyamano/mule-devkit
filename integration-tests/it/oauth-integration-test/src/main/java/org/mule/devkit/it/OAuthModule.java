@@ -25,6 +25,8 @@ import org.mule.api.annotations.oauth.OAuthAccessTokenSecret;
 import org.mule.api.annotations.oauth.OAuthConsumerKey;
 import org.mule.api.annotations.oauth.OAuthConsumerSecret;
 
+import java.io.IOException;
+
 /**
  * This an OAuth test module
  *
@@ -65,7 +67,7 @@ public class OAuthModule {
      * @return
      */
     @Processor
-    public String protectedResource(@OAuthAccessToken String accessToken, @OAuthAccessTokenSecret String accessTokenSecret) {
+    public String protectedResource(@OAuthAccessToken String accessToken, @OAuthAccessTokenSecret String accessTokenSecret) throws IOException {
         if (!accessToken.equals(Constants.ACCESS_TOKEN) || !accessTokenSecret.equals(Constants.ACCESS_TOKEN_SECRET)) {
             throw new RuntimeException("Access token or access token secret do not match expected");
         }
