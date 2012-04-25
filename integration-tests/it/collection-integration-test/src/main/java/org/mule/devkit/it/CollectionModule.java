@@ -156,6 +156,19 @@ public class CollectionModule {
         }
     }
 
+    @Processor
+    public List<Map<String, Object>> listOfMaps(List<Map<String, Object>> objects) {
+        if( objects.size() != 1 ) {
+            throw new RuntimeException("List should have 1 entries");
+        }
+
+        if( objects.get(0) == null ) {
+            throw new RuntimeException("The first object should not be null");
+        }
+
+        return objects;
+    }
+
     public void setStrings(List strings) {
         this.strings = strings;
     }

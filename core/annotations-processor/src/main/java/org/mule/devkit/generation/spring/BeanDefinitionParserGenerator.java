@@ -650,7 +650,7 @@ public class BeanDefinitionParserGenerator extends AbstractMessageGenerator {
         List<? extends TypeMirror> variableTypeParameters = variableType.getTypeArguments();
 
         Variable listChilds = body.decl(ref(List.class).narrow(ref(org.w3c.dom.Element.class)),
-                fieldName.replace("-", "") + "ListChilds",
+                fieldName.replace("-", "") + "MapChilds",
                 ExpressionFactory._null());
 
         Conditional listElementNotNull = body._if(Op.ne(listElement, ExpressionFactory._null()));
@@ -803,7 +803,7 @@ public class BeanDefinitionParserGenerator extends AbstractMessageGenerator {
 
         ForEach forEach = listChildsNotNull._then().forEach(ref(org.w3c.dom.Element.class), fieldName.replace("-", "") + "Child", listChilds);
 
-        Invocation getValueRef = forEach.var().invoke("getAttribute").arg("value-ref");
+        Invocation getValueRef = forEach.var().invoke("getAttribute").arg("ref");
         Variable valueRef = forEach.body().decl(ref(String.class), "valueRef",
                 getValueRef);
 

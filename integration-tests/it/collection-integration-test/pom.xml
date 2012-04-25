@@ -9,8 +9,8 @@
     <name>Mule DevKit Collection Integration Tests</name>
 
     <properties>
-        <mule.version>@mule.version@</mule.version>
-        <devkit.version>@project.version@</devkit.version>
+        <mule.version>3.3.0-RC4-SNAPSHOT</mule.version>
+        <devkit.version>3.3-SNAPSHOT</devkit.version>
     </properties>
 
     <build>
@@ -19,7 +19,7 @@
                 <plugin>
                     <groupId>org.mule.tools.devkit</groupId>
                     <artifactId>mule-devkit-maven-plugin</artifactId>
-                    <version>@project.version@</version>
+                    <version>${devkit.version}</version>
                     <extensions>true</extensions>
                 </plugin>
                 <plugin>
@@ -45,7 +45,7 @@
             <plugin>
                 <groupId>org.mule.tools.devkit</groupId>
                 <artifactId>mule-devkit-maven-plugin</artifactId>
-                <version>@project.version@</version>
+                <version>${devkit.version}</version>
                 <extensions>true</extensions>
             </plugin>
         </plugins>
@@ -111,7 +111,7 @@
         <dependency>
             <groupId>org.mule.tools.devkit</groupId>
             <artifactId>mule-devkit-annotations</artifactId>
-            <version>@project.version@</version>
+            <version>${devkit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.tests</groupId>

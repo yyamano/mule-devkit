@@ -180,4 +180,12 @@
             </collection:map>
         </collection:map-of-lists>
     </flow>
+
+    <flow name="flowListOfMapsWithRef">
+        <collection:list-of-maps config-ref="configA">
+            <collection:objects>
+                <collection:object ref="#[payload]"/>
+            </collection:objects>
+        </collection:list-of-maps>
+    </flow>
 </mule>
