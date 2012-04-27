@@ -20,8 +20,6 @@ package org.mule.devkit.generation.mule.studio;
 import org.mule.devkit.generation.AbstractMessageGenerator;
 import org.mule.devkit.generation.DevKitTypeElement;
 import org.mule.devkit.generation.GenerationException;
-import org.mule.devkit.generation.mule.studio.editor.MuleStudioEditorXmlGenerator;
-import org.mule.devkit.generation.spring.SchemaGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -32,9 +30,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-public class MuleStudioPluginXmlGenerator extends AbstractMessageGenerator {
-
-    public static final String PLUGIN_XML_FILE_NAME = "plugin.xml";
+/**
+ * <p>Generates the the feature.xml file for an update site</p>
+ */
+public class MuleStudioFeatureGenerator extends AbstractMessageGenerator {
+    public static final String FEATURE_XML_FILENAME = "feature.xml";
 
     @Override
     protected boolean shouldGenerate(DevKitTypeElement typeElement) {
@@ -49,35 +49,31 @@ public class MuleStudioPluginXmlGenerator extends AbstractMessageGenerator {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.newDocument();
 
-            Element pluginElement = document.createElement("plugin");
-            document.appendChild(pluginElement);
+            Element feature = document.createElement("feature");
+            feature.setAttribute("id", "%FEATURE_ID%");
+            feature.setAttribute("label", "%FEATURE_ID%");
+            feature.setAttribute("version", "%VERSION%");
+            feature.setAttribute("provider-name", "Mulesoft, Inc.");
+            document.appendChild(feature);
 
-            Element extensionElement = document.createElement("extension");
-            extensionElement.setAttribute("point", "org.mule.tooling.core.contribution");
+            Element license = document.createElement("license");
+            license.setTextContent("%LICENSE%");
+            license.setNodeValue("%LICENSE%");
+            feature.appendChild(license);
 
-            pluginElement.appendChild(extensionElement);
-
-            Element externalContributionElement = document.createElement("externalContribution");
-            externalContributionElement.setAttribute("contributionJar", "%JAR_NAME%");
-            externalContributionElement.setAttribute("contributionLibPathInMule", "/plugins");
-            externalContributionElement.setAttribute("contributionLibs", "%ZIP_NAME%");
-            externalContributionElement.setAttribute("contributionSources", "%SOURCES_JAR%");
-            externalContributionElement.setAttribute("contributionJavaDocs", "%JAVADOC_JAR%");
-            externalContributionElement.setAttribute("contributionNamespace", SchemaGenerator.getNamespace(typeElement));
-            externalContributionElement.setAttribute("contributionNamespaceFile", SchemaGenerator.getVersionedLocation(typeElement));
-            externalContributionElement.setAttribute("contributionNamespacePrefix", typeElement.name());
-            externalContributionElement.setAttribute("contributionType", "cloud-connector");
-            externalContributionElement.setAttribute("path", MuleStudioEditorXmlGenerator.EDITOR_XML_FILE_NAME);
-            externalContributionElement.setAttribute("version", "%PROJECT_VERSION%");
-            externalContributionElement.setAttribute("name", "%BUNDLE_NAME%");
-
-            extensionElement.appendChild(externalContributionElement);
+            Element plugin = document.createElement("plugin");
+            plugin.setAttribute("id", "%PLUGIN_ID%");
+            plugin.setAttribute("download-size", "0");
+            plugin.setAttribute("install-size", "0");
+            plugin.setAttribute("version", "%VERSION%");
+            plugin.setAttribute("unpack", "true");
+            feature.appendChild(plugin);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
 
             DOMSource source = new DOMSource(document);
-            StreamResult result = new StreamResult(context.getCodeModel().getCodeWriter().openBinary(null, PLUGIN_XML_FILE_NAME));
+            StreamResult result = new StreamResult(context.getCodeModel().getCodeWriter().openBinary(null, FEATURE_XML_FILENAME));
             transformer.transform(source, result);
 
         } catch (Exception e) {

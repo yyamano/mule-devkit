@@ -41,6 +41,7 @@ import org.mule.devkit.generation.mule.oauth.DefaultRestoreAccessTokenCallbackFa
 import org.mule.devkit.generation.mule.oauth.DefaultRestoreAccessTokenCallbackGenerator;
 import org.mule.devkit.generation.mule.oauth.DefaultSaveAccessTokenCallbackFactoryGenerator;
 import org.mule.devkit.generation.mule.oauth.DefaultSaveAccessTokenCallbackGenerator;
+import org.mule.devkit.generation.mule.studio.MuleStudioFeatureGenerator;
 import org.mule.devkit.generation.mule.studio.MuleStudioPluginGenerator;
 import org.mule.devkit.generation.mule.transfomer.EnumTransformerGenerator;
 import org.mule.devkit.generation.mule.transfomer.JaxbTransformerGenerator;
@@ -109,6 +110,7 @@ public class DevKitAnnotationProcessor extends AbstractAnnotationProcessor {
         generators.add(new ExpressionEnricherGenerator());
         generators.add(new RegistryBootstrapGenerator());
         generators.add(new MuleStudioPluginGenerator());
+        generators.add(new MuleStudioFeatureGenerator());
         generators.add(new SchemaGenerator());
 
         validators = new ArrayList<Validator>();

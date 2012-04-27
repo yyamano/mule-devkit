@@ -45,6 +45,17 @@
             <artifactId>org.eclipse.egit.github.core</artifactId>
             <version>1.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>sisu-equinox-launching</artifactId>
+            <version>0.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>1.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
