@@ -63,6 +63,9 @@ public abstract class AbstractAnnotationProcessorMojo extends AbstractMuleMojo {
     @MojoParameter(required = true, defaultValue = "true", expression = "${annotation.outputDiagnostics}", description = "Indicates whether the compiler output should be visible, defaults to true.")
     private boolean outputDiagnostics = true;
 
+    @MojoParameter(expression = "${project.build.sourceEncoding}", description = "character encoding used by source files.")
+    private String encoding;
+
     @SuppressWarnings("rawtypes")
     @MojoParameter(required = false, description = "System properties set before processor invocation.")
     private Map systemProperties;
@@ -188,6 +191,11 @@ public abstract class AbstractAnnotationProcessorMojo extends AbstractMuleMojo {
 
         options.add("-s");
         options.add(outputDirectory.getPath());
+
+        if (encoding != null) {
+            options.add("-encoding");
+            options.add(encoding);
+        }
 
         addCompilerArguments(options);
 
